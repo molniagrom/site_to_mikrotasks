@@ -2,16 +2,9 @@ import pumaModel1 from "../../assets/39232622.jpg"
 import pumaModel2 from "../../assets/572632a.webp"
 import pumaModel3 from "../../assets/51n8HLOl3bL._UY900_.jpg"
 import {Link} from "react-router-dom";
+import {SneakerItem} from "../../App.tsx";
 
-export type PumaItem = {
-    id: number;
-    model: string;
-    collection: string;
-    price: string;
-    picture: string;
-}
-
-export const pumaArr: PumaItem[] = [
+export const pumaArr: SneakerItem[] = [
     {
         id: 1,
         model: 'PUMA SUEDE CLASSIC',
