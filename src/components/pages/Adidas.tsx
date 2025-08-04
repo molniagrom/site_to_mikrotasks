@@ -50,7 +50,6 @@ export const Adidas = () => {
                         />
                     </Link>
                 ))}
-
             </div>
             <p>
                 What is Lorem Ipsum?

@@ -1,6 +1,6 @@
 import {Navigate, NavLink, Route, Routes} from "react-router-dom";
 import {Adidas, adidasArr} from "./components/pages/Adidas.tsx";
-import {Abibas} from "./components/pages/Abibas.tsx";
+import {Abibas, funnyShoeArr} from "./components/pages/Abibas.tsx";
 import {Puma, pumaArr} from "./components/pages/Puma.tsx";
 import {Error404} from "./components/pages/Error404.tsx";
 import {S} from "./_styles.ts"
@@ -49,6 +49,7 @@ export const App = () => {
 
                         <Route path="/adidas/:id" element={<Model items={adidasArr}/>}/>
                         <Route path="/puma/:id" element={<Model items={pumaArr}/>}/>
+                        <Route path="/abibas/:id" element={<Model items={funnyShoeArr}/>}/>
                         <Route path="/*" Component={Error404}/>
                     </Routes>
 
