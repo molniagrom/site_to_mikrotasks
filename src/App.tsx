@@ -1,15 +1,17 @@
 import {Navigate, NavLink, Route, Routes} from "react-router-dom";
-import {PageOne} from "./components/pages/PageOne.tsx";
-import {PageThree} from "./components/pages/PageThree.tsx";
-import {PageTwo} from "./components/pages/PageTwo.tsx";
+import {Adidas} from "./components/pages/Adidas.tsx";
+import {Abibas} from "./components/pages/Abibas.tsx";
+import {Puma} from "./components/pages/Puma.tsx";
 import {Error404} from "./components/pages/Error404.tsx";
 import {S} from "./_styles.ts"
+import {Model} from "./components/Model.tsx";
 
-const PATH = {
-    PAGE1: "/page1",
-    PAGE2: "/page2",
-    PAGE3: "/page3",
+export const PATH = {
+    adidas: "/adidas",
+    puma: "/puma",
+    abibas: "/abibas",
     Error404: "/error404",
+    model: "/model"
 } as const;
 
 export const App = () => {
@@ -19,13 +21,13 @@ export const App = () => {
             <S.Body>
                 <S.Nav>
                     <S.NavWrapper>
-                        <NavLink to={PATH.PAGE1}>Page 1</NavLink>
+                        <NavLink to={PATH.adidas}>Adidas</NavLink>
                     </S.NavWrapper>
                     <S.NavWrapper>
-                        <NavLink to={PATH.PAGE2}>Page 2</NavLink>
+                        <NavLink to={PATH.puma}>Puma</NavLink>
                     </S.NavWrapper>
                     <S.NavWrapper>
-                        <NavLink to={PATH.PAGE3}>Page 3</NavLink>
+                        <NavLink to={PATH.abibas}>Abibas</NavLink>
                     </S.NavWrapper>
 
                 </S.Nav>
@@ -33,11 +35,13 @@ export const App = () => {
                     <Routes>
                         <Route path="/" element={<Navigate to={"/page1"}/>}/>
 
-                        <Route path={PATH.PAGE1} Component={PageOne}/>
-                        <Route path={PATH.PAGE2} Component={PageTwo}/>
-                        <Route path={PATH.PAGE3} Component={PageThree}/>
+                        <Route path={PATH.adidas} Component={Adidas}/>
+                        <Route path={PATH.puma} Component={Puma}/>
+                        <Route path={PATH.abibas} Component={Abibas}/>
 
-                        {/*<Route path={PATH.Error404} Component={Error404}/>*/}
+                        <Route path={"/adidas/:id"} Component={Model}/>
+                        <Route path={"/puma/:id"} Component={Model}/>
+
                         <Route path="/*" Component={Error404}/>
                     </Routes>
 
