@@ -1,7 +1,7 @@
 import {Navigate, NavLink, Route, Routes} from "react-router-dom";
-import {Adidas, adidasArr} from "./components/pages/Adidas.tsx";
-import {Abibas, funnyShoeArr} from "./components/pages/Abibas.tsx";
-import {Puma, pumaArr} from "./components/pages/Puma.tsx";
+import {Adidas} from "./components/pages/Adidas.tsx";
+import {Abibas} from "./components/pages/Abibas.tsx";
+import {Puma} from "./components/pages/Puma.tsx";
 import {Error404} from "./components/pages/Error404.tsx";
 import {S} from "./_styles.ts"
 import {Model} from "./components/Model.tsx";
@@ -41,15 +41,14 @@ export const App = () => {
                 </S.Nav>
                 <S.Content>
                     <Routes>
-                        <Route path="/" element={<Navigate to={"/page1"}/>}/>
+                        <Route path="/" element={<Navigate to={PATH.adidas}/>}/>
 
                         <Route path={PATH.adidas} Component={Adidas}/>
                         <Route path={PATH.puma} Component={Puma}/>
                         <Route path={PATH.abibas} Component={Abibas}/>
 
-                        <Route path="/adidas/:id" element={<Model items={adidasArr}/>}/>
-                        <Route path="/puma/:id" element={<Model items={pumaArr}/>}/>
-                        <Route path="/abibas/:id" element={<Model items={funnyShoeArr}/>}/>
+                        <Route path="/:model/:id" element={<Model />}/>
+
                         <Route path="/*" Component={Error404}/>
                     </Routes>
 

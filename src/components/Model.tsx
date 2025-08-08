@@ -1,15 +1,35 @@
 import {useParams} from "react-router-dom";
 import {SneakerItem} from "../App.tsx";
+import {pumaArr} from "./pages/Puma.tsx";
+import {adidasArr} from "./pages/Adidas.tsx";
+import {funnyShoeArr} from "./pages/Abibas.tsx";
 
-type ModelProps = {
-    items: SneakerItem[];
-};
+// type ModelProps = {
+//     items: SneakerItem[];
+// };
 
-export const Model = ({items}:ModelProps) => {
-    const params = useParams();
-    const cell = items.find(a =>
-        a.id === Number(params.id));
+type ObjectType = {
+    [key: string]: SneakerItem[]
+}
+
+const object: ObjectType = {
+    puma: pumaArr,
+    adidas: adidasArr,
+    abibas: funnyShoeArr
+}
+
+export const Model = () => {
+    const {model, id} = useParams();
+
+    console.log(model)
+
+    const cell = model
+        ? object[model].find(a => a.id === Number(id))
+        : null
+
+
     console.log(cell);
+
     return (
         <div>
             <div style={{

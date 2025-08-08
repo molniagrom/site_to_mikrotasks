@@ -8,7 +8,7 @@ import {SneakerItem} from "../../App.tsx";
 export const adidasArr: SneakerItem[] = [
     {
         id: 1,
-        model: 'ADIDAS ADIFOM TRXN',
+        model: 'adidas',
         collection: 'new collection1',
         price: '100200$',
         picture: adidasModel1,
@@ -16,14 +16,14 @@ export const adidasArr: SneakerItem[] = [
     },
     {
         id: 2,
-        model: 'ADIDAS ADIFOM SUPER',
+        model: 'adidas',
         collection: 'new collection22',
         price: '200300$',
         picture: adidasModel2
     },
     {
         id: 3,
-        model: 'ADIDAS SUPER SUPERSKI',
+        model: 'adidas',
         collection: 'new collection333',
         price: '300400$',
         picture: adidasModel3
@@ -38,7 +38,7 @@ export const Adidas = () => {
                 padding: '10px'
             }}>
                 {adidasArr.map((adidas, index) => (
-                    <Link key={index} to={`/adidas/${adidas.id}`}>
+                    <Link key={index} to={`/${adidas.model}/${adidas.id}`}>
                         <img
                             style={{
                                 cursor: "pointer",

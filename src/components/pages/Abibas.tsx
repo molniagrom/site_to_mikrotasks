@@ -7,21 +7,21 @@ import {Link} from "react-router-dom";
 export const funnyShoeArr: SneakerItem[] = [
     {
         id: 1,
-        model: "CLOWN KICKZ 3000",
+        model: "abibas",
         collection: "circus vibes",
         price: "9999$",
         picture: funnyShoe1,
     },
     {
         id: 2,
-        model: "BANANA SLIPPERZ",
+        model: "abibas",
         collection: "fruit fiesta",
         price: "12345$",
         picture: funnyShoe2,
     },
     {
         id: 3,
-        model: "DISCO DUCK BOOTS",
+        model: "abibas",
         collection: "party poultry",
         price: "8765$",
         picture: funnyShoe3,
@@ -35,7 +35,7 @@ export const Abibas = () => {
                 padding: '10px'
             }}>
                 {funnyShoeArr.map((f, index) => (
-                    <Link key={index} to={`/abibas/${f.id}`}>
+                    <Link key={index} to={`/${f.model}/${f.id}`}>
                         <img
                             style={{
                                 cursor: "pointer",

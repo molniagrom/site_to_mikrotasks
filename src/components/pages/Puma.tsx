@@ -7,21 +7,21 @@ import {SneakerItem} from "../../App.tsx";
 export const pumaArr: SneakerItem[] = [
     {
         id: 1,
-        model: 'PUMA SUEDE CLASSIC',
+        model: 'puma',
         collection: 'classic collection1',
         price: '8990$',
         picture: pumaModel1,
     },
     {
         id: 2,
-        model: 'PUMA RS-X',
+        model: 'puma',
         collection: 'modern collection2',
         price: '120150$',
         picture: pumaModel2,
     },
     {
         id: 3,
-        model: 'PUMA FUTURE RIDER',
+        model: 'puma',
         collection: 'retro collection3',
         price: '110130$',
         picture: pumaModel3,
@@ -34,7 +34,7 @@ export const Puma = () => {
             <h2>PUMA</h2>
             <p>
                 {pumaArr.map((p, index) => (
-                    <Link key={index} to={`/puma/${p.id}`}>
+                    <Link key={index} to={`/${p.model}/${p.id}`}>
                         <img
                             style={{
                                 cursor: "pointer",
