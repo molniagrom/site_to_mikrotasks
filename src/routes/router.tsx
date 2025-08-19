@@ -4,6 +4,7 @@ import {Error404} from "../components/pages/Error404.tsx";
 import {Adidas} from "../components/pages/Adidas.tsx";
 import {Puma} from "../components/pages/Puma.tsx";
 import {Abibas} from "../components/pages/Abibas.tsx";
+import {Prices} from "../components/pages/Prices.tsx";
 
 const PATH = {
     ADIDAS: '/adidas',
@@ -29,6 +30,10 @@ export const router = createBrowserRouter([
             {
                 path: PATH.ABIBAS,
                 element: <Abibas />,
+            },
+            {
+                path: PATH.PRICES,
+                element: <Prices />,
             },
         ]
     },

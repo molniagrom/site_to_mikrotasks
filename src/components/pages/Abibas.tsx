@@ -1,7 +1,60 @@
+import funnyShoe1 from "../../assets/abibas/shoes_cats.jpg";
+import funnyShoe2 from "../../assets/abibas/shoes_sandwitch.jpg";
+import funnyShoe3 from "../../assets/abibas/shoes_fish.jpg";
+import {Link} from "react-router-dom";
+
+export type AbibasItem = {
+    id: number;
+    model: string;
+    collection: string;
+    price: string;
+    picture: string;
+}
+
+export const funnyShoeArr: AbibasItem[] = [
+    {
+        id: 1,
+        model: "abibas",
+        collection: "circus vibes",
+        price: "9999$",
+        picture: funnyShoe1,
+    },
+    {
+        id: 2,
+        model: "abibas",
+        collection: "fruit fiesta",
+        price: "12345$",
+        picture: funnyShoe2,
+    },
+    {
+        id: 3,
+        model: "abibas",
+        collection: "party poultry",
+        price: "8765$",
+        picture: funnyShoe3,
+    },
+];
 export const Abibas = () => {
     return (
         <div>
             <h2> ABIBAS</h2>
+            <div style={{
+                padding: '10px'
+            }}>
+                {funnyShoeArr.map((f, index) => (
+                    <Link key={index} to={`/${f.model}/${f.id}`}>
+                        <img
+                            style={{
+                                cursor: "pointer",
+                                width: "33.3%",
+                                height: "33.3%"
+                            }}
+                            src={f.picture}
+                            alt={f.model}
+                        />
+                    </Link>
+                ))}
+            </div>
             <p>
                 What is Lorem Ipsum?
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard

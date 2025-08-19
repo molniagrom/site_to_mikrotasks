@@ -3,8 +3,6 @@ import pumaModel2 from './../../assets/puma/krossovki-puma-trinity-open-road-393
 import pumaModel3 from './../../assets/puma/krossovki-puma-trinity-mid-hybrid-leather-393985-02-3-1000x800.jpg'
 import {Link} from "react-router-dom";
 
-
-
 export type PumaItem = {
     id:number;
     model: string;
