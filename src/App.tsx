@@ -1,61 +1,51 @@
-import {Navigate, NavLink, Route, Routes} from "react-router-dom";
+import styles from "./components/Site.module.css";
 import {Adidas} from "./components/pages/Adidas.tsx";
-import {Abibas} from "./components/pages/Abibas.tsx";
 import {Puma} from "./components/pages/Puma.tsx";
-import {Error404} from "./components/pages/Error404.tsx";
-import {S} from "./_styles.ts"
-import {Model} from "./components/Model.tsx";
+import {Abibas} from "./components/pages/Abibas.tsx";
+import {Navigate, NavLink, Route, Routes} from 'react-router-dom';
+import {Error404} from "./components/pages/Error404";
+import {S} from './components/pages/_styles';
+import {Model} from "./components/pages/Model";
+import {Prices} from "./components/pages/Prices";
 
-export const PATH = {
-    adidas: "/adidas",
-    puma: "/puma",
-    abibas: "/abibas",
-    Error404: "/error404",
-    model: "/model"
-} as const;
-
-export interface SneakerItem {
-    id: number;
-    model: string;
-    collection: string;
-    price: string;
-    picture: string;
-}
+const PATH = {
+  PAGE1: '/adidas',
+  PAGE2: '/puma',
+  PAGE3: '/abibas',
+  PRICES: '/pricies',
+} as const
 
 export const App = () => {
-    return (
-        <div>
-            <S.Header><h1>HEADER</h1></S.Header>
-            <S.Body>
-                <S.Nav>
-                    <S.NavWrapper>
-                        <NavLink to={PATH.adidas}>Adidas</NavLink>
-                    </S.NavWrapper>
-                    <S.NavWrapper>
-                        <NavLink to={PATH.puma}>Puma</NavLink>
-                    </S.NavWrapper>
-                    <S.NavWrapper>
-                        <NavLink to={PATH.abibas}>Abibas</NavLink>
-                    </S.NavWrapper>
-
-                </S.Nav>
-                <S.Content>
-                    <Routes>
-                        <Route path="/" element={<Navigate to={PATH.adidas}/>}/>
-
-                        <Route path={PATH.adidas} Component={Adidas}/>
-                        <Route path={PATH.puma} Component={Puma}/>
-                        <Route path={PATH.abibas} Component={Abibas}/>
-
-                        <Route path="/:model/:id" element={<Model />}/>
-
-                        <Route path="/*" Component={Error404}/>
-                    </Routes>
-
-                </S.Content>
-            </S.Body>
-            <S.Footer>abibas 2023</S.Footer>
+  return (
+    <div>
+      <div className={styles.header}><h1>HEADER</h1></div>
+      <div className={styles.body}>
+        <div className={styles.nav}>
+          <S.NavWrapper><NavLink to={PATH.PAGE1}>Page1</NavLink></S.NavWrapper>
+          <S.NavWrapper><NavLink to={PATH.PAGE2}>Page2</NavLink></S.NavWrapper>
+          <S.NavWrapper><NavLink to={PATH.PAGE3}>Page3</NavLink></S.NavWrapper>
+          <S.NavWrapper><NavLink to={PATH.PRICES}>Prices</NavLink></S.NavWrapper>
         </div>
-    );
-}
+        <div className={styles.content}>
+          <Routes>
+            <Route path={'/'} element={<Navigate to={PATH.PAGE1}/>}/>
 
+            <Route path={PATH.PAGE1} element={<Adidas/>}/>
+            <Route path={PATH.PAGE2} element={<Puma/>}/>
+            <Route path={PATH.PAGE3} element={<Abibas/>}/>
+            <Route path={PATH.PRICES} element={<Prices/>}/>
+
+            {/*<Route path={'/adidas/:id'} element={<Model/>}/>*/}
+            <Route path={'/:model/:id'} element={<Model/>}/>
+
+            <Route path={'/*'} element={<Error404/>}/>
+
+            {/*<Route path={'/page/error'} element={<Error404/>}/>*/}
+            {/*<Route path={'/*'} element={<Navigate to={'/page/error'}/>}/>*/}
+          </Routes>
+        </div>
+      </div>
+      <div className={styles.footer}>abibas 2023</div>
+    </div>
+  );
+}
